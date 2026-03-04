@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boomerang ve Aborjin Radyo</title>
+
+<meta property="og:title" content="Boomerang & Aborjin Radyo">
+<meta property="og:description" content="Harika bir radyo buldum! Mutlaka dinlemelisin!">
+<meta property="og:image" content="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070">
+<meta property="og:url" content="https://www.boomerangveaborjin.com">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root {
+    --bg-image: url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop');
+  }
+
+  body {
+    margin: 0; font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), var(--bg-image);
+    background-size: cover; background-position: center; background-attachment: fixed;
+    color: white; display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;
+  }
+
+  .player-box {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), var(--bg-image);
+    background-size: cover; background-position: center;
+    padding: 35px; border-radius: 45px; box-shadow: 0 25px 60px rgba(0,0,0,1);
+    text-align: center; width: 85%; max-width: 400px; border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px);
+  }
+
+  .auto-play-warning {
+    background: #ffcc00; color: #000; padding: 12px; border-radius: 12px; font-weight: bold;
+    font-size: 0.85em; margin-bottom: 25px; display: block; animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+  .play-button {
+    width: 95px; height: 95px; border-radius: 50%; background: linear-gradient(145deg, #ffcc00, #ffaa00);
+    border: none; cursor: pointer; font-size: 2.8em; color: #000; transition: 0.3s;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+
+  .play-button:hover { transform: scale(1.15); box-shadow: 0 0 40px rgba(255, 204, 0, 0.6); }
+
+  .wave { height: 45px; display: flex; justify-content: center; align-items: center; gap: 7px; margin: 25px 0; }
+  .wave div { width: 6px; height: 15px; background: #ffcc00; border-radius: 3px; animation: bounce 1s infinite ease-in-out; }
+  @keyframes bounce { 0%, 100% { height: 15px; } 50% { height: 45px; } }
+  .wave div:nth-child(2) { animation-delay: 0.1s; }
+  .wave div:nth-child(3) { animation-delay: 0.2s; }
+  .wave div:nth-child(4) { animation-delay: 0.3s; }
+  .wave div:nth-child(5) { animation-delay: 0.4s; }
+
+  #suggest { color: #ffcc00; font-weight: bold; font-size: 1.3em; margin-top: 15px; display: block; text-transform: uppercase; }
+
+  .share-buttons { margin-top: 30px; display: flex; justify-content: center; gap: 15px; }
+  .share-buttons a {
+    width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; color: white; text-decoration: none; font-size: 1.5em; transition: 0.3s;
+  }
+
+  .whatsapp { background: #25D366; } .facebook { background: #1877F2; } .twitter { background: #000; } .instagram { background: #E1306C; }
+  .share-buttons a:hover { transform: translateY(-7px); }
+</style>
+</head>
+<body>
+
+<h1 style="margin-bottom:20px; text-shadow: 0 5px 20px #000;">🎧 BOOMERANG & ABORJİN</h1>
+
+<div class="player-box">
+  <div class="auto-play-warning">
+    ⚠️ Player Otomatik Çalmazsa Play Tuşuna Tıklayın!
+  </div>
+
+  <audio id="radio-stream">
+    <source src="https://radyoserver1.okeylisans.com:9440/stream" type="audio/mpeg">
+  </audio>
+
+  <button class="play-button" id="play-btn"><i class="fas fa-play" id="btn-icon"></i></button>
+
+  <div class="wave"><div></div><div></div><div></div><div></div><div></div></div>
+
+  <div class="message">
+    <p><a href="https://wa.me/905354363816?text=Harika%20radyo!%20Bir%20istek%20göndermek%20istiyorum." target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold; font-size: 1.2em;"><i class="fab fa-whatsapp"></i> İSTEK HATTI</a></p>
+    <span id="suggest">BİZİ ÖNERİN!</span>
+  </div>
+
+  <div class="share-buttons">
+    <a href="https://api.whatsapp.com/send?text=Harika%20bir%20radyo%20buldum!%20Mutlaka%20dinle:%20https://www.boomerangveaborjin.com" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.boomerangveaborjin.com" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Harika%20bir%20radyo%20buldum!%20Mutlaka%20dinle!&url=https://www.boomerangveaborjin.com" target="_blank" class="twitter"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://www.instagram.com" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+  </div>
+</div>
+
+<script>
+  const audio = document.getElementById('radio-stream');
+  const playBtn = document.getElementById('play-btn');
+  const icon = document.getElementById('btn-icon');
+
+  playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play().then(() => icon.className = 'fas fa-pause').catch(e => console.log(e));
+    } else {
+      audio.pause(); icon.className = 'fas fa-play';
+    }
+  });
+</script>
+
+</body>
+</html>
